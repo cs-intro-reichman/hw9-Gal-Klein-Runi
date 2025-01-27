@@ -43,4 +43,93 @@ public class LinkedListTest {
 		//// (959 , 41) (0 , 269) (348 , 50) (407 , 1) (452 , 3) (534 , 68) (698 , 1) (767 , 42) (918 , 32) 
 		//// (269 , 79) (398 , 9) (408 , 44) (455 , 79) (602 , 96) (699 , 68) (809 , 109) (950 , 9) 
 	}
+
+
+
+
+	public static void testAddFirst() {
+        LinkedList list = new LinkedList();
+        list.addFirst(new MemoryBlock(100, 10));
+        list.addFirst(new MemoryBlock(90, 5));
+        System.out.println("Test Add First: " + list); 
+        // Expected: [(90, 5), (100, 10)]
+    }
+
+    public static void testAddLast() {
+        LinkedList list = new LinkedList();
+        list.addLast(new MemoryBlock(100, 10));
+        list.addLast(new MemoryBlock(110, 20));
+        System.out.println("Test Add Last: " + list); 
+        // Expected: [(100, 10), (110, 20)]
+    }
+
+    public static void testAddAtIndex() {
+        LinkedList list = new LinkedList();
+        list.addLast(new MemoryBlock(100, 10));
+        list.addLast(new MemoryBlock(120, 20));
+        list.add(1, new MemoryBlock(110, 15));
+        System.out.println("Test Add at Index: " + list); 
+        // Expected: [(100, 10), (110, 15), (120, 20)]
+    }
+
+    public static void testRemoveNode() {
+        LinkedList list = new LinkedList();
+        MemoryBlock block1 = new MemoryBlock(100, 10);
+        MemoryBlock block2 = new MemoryBlock(120, 20);
+        list.addLast(block1);
+        list.addLast(block2);
+        list.remove(new Node(block1));
+        System.out.println("Test Remove Node: " + list); 
+        // Expected: [(120, 20)]
+    }
+
+    public static void testRemoveAtIndex() {
+        LinkedList list = new LinkedList();
+        list.addLast(new MemoryBlock(100, 10));
+        list.addLast(new MemoryBlock(110, 20));
+        list.remove(0);
+        System.out.println("Test Remove at Index: " + list); 
+        // Expected: [(110, 20)]
+    }
+
+    public static void testGetNode() {
+        LinkedList list = new LinkedList();
+        list.addLast(new MemoryBlock(100, 10));
+        list.addLast(new MemoryBlock(110, 20));
+        Node node = list.getNode(1);
+        System.out.println("Test Get Node: " + node); 
+        // Expected: {(110, 20)}
+    }
+
+    public static void testGetBlock() {
+        LinkedList list = new LinkedList();
+        list.addLast(new MemoryBlock(100, 10));
+        list.addLast(new MemoryBlock(110, 20));
+        MemoryBlock block = list.getBlock(1);
+        System.out.println("Test Get Block: " + block); 
+        // Expected: (110, 20)
+    }
+
+    public static void testIndexOf() {
+        LinkedList list = new LinkedList();
+        MemoryBlock block1 = new MemoryBlock(100, 10);
+        MemoryBlock block2 = new MemoryBlock(110, 20);
+        list.addLast(block1);
+        list.addLast(block2);
+        int index = list.indexOf(block2);
+        System.out.println("Test Index Of: " + index); 
+        // Expected: 1
+    }
+
+	public static void main2(String[] args) {
+        testAddFirst();
+        testAddLast();
+        testAddAtIndex();
+        testRemoveNode();
+        testRemoveAtIndex();
+        testGetNode();
+        testGetBlock();
+        testIndexOf();
+    }
+
 }
