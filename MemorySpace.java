@@ -102,7 +102,7 @@ public class MemorySpace {
 	 */
 	public void free(int address) {
 		if (allocatedList.getSize() == 0) {
-			throw new IllegalArgumentException("Cannot free memory: allocated list is empty.");
+			throw new IllegalArgumentException("index must be between 0 and size");
 		}
 		ListIterator iterator = allocatedList.iterator();
 		while (iterator.hasNext()) {
