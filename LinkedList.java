@@ -287,7 +287,7 @@ public class LinkedList {
 			current = current.next;
 		}
 
-		throw new IllegalArgumentException("Memory block not found in the list");
+		throw new IllegalArgumentException("index must be between 0 and size");
 	}
 
 	/**

@@ -101,6 +101,9 @@ public class MemorySpace {
 	 *                    the starting address of the block to freeList
 	 */
 	public void free(int address) {
+		if (allocatedList.getSize() == 0) {
+			throw new IllegalArgumentException("Cannot free memory: allocated list is empty.");
+		}
 		ListIterator iterator = allocatedList.iterator();
 		while (iterator.hasNext()) {
 			MemoryBlock allocatedBlock = iterator.next();
